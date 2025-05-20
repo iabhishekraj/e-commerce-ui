@@ -1,27 +1,48 @@
-// import { useCartStore } from "../store/cartStore";
+
+import { Card, CardContent, CardMedia, Typography } from '@mui/material';
 
 interface ProductCardProps {
   id: string;
-  title: string;
-  price: number;
-  image: string;
+  name: string;
+  brand: string;
+  description: string;
+  imageUrl: string;
+  otherImages: string[];
+  price: number
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
   id,
-  title,
-  price,
-  image,
+  name,
+  brand,
+  description,
+  imageUrl,
+  otherImages,
+  price
 }) => {
   return (
-    <div className="border p-4 rounded shadow-md">
-      <h2>{title}</h2>
-      <img src={image} alt="" height={200} width={200} />
-      <p>${price}</p>
-      <button className="bg-blue-500 text-white p-2 rounded" onClick={() => {}}>
-        Add to Cart
-      </button>
-    </div>
+    <Card sx={{ width: 345, height: '100%', display: 'flex', flexDirection: 'column' }}>
+      <CardMedia
+        component="img"
+        height="140"
+        image={imageUrl}
+        alt={name}
+      />
+      <CardContent sx={{ flexGrow: 1, textTransform: 'capitalize' }}>
+        <Typography gutterBottom variant="h5" component="div">
+          {name}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {description}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Rs. {price}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Brand: {brand}
+        </Typography>
+      </CardContent>
+    </Card>
   );
 };
 

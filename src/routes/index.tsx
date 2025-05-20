@@ -1,20 +1,19 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "../pages/home";
-// import Home from "../pages/Home";
-// import ProductDetails from "../pages/ProductDetails";
-// import Checkout from "../pages/Checkout";
-// import NotFound from "../pages/NotFound";
+import { Routes, Route } from "react-router-dom";
+import Home from "../components/home";
+import Category from "../components/categoryList";
+import ProductList from "../components/productList";
+import NotFound from "../components/notFound";
 
 const AppRoutes = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        {/* <Route path="/product/:id" element={<ProductDetails />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="*" element={<NotFound />} /> */}
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/dashboard" element={<Home />} />
+      <Route path="/dashboard" element={<Home />} />
+      <Route path="/category" element={<Category />} />
+      <Route path="/products" element={<ProductList />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 };
 
